@@ -33,6 +33,8 @@
             this.tbNew = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lbParentDep = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView
@@ -41,11 +43,16 @@
             this.treeView.Name = "treeView";
             this.treeView.Size = new System.Drawing.Size(584, 425);
             this.treeView.TabIndex = 0;
+            this.treeView.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView_ItemDrag);
+            this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
+            this.treeView.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView_DragDrop);
+            this.treeView.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeView_DragEnter);
+            this.treeView.DragOver += new System.Windows.Forms.DragEventHandler(this.treeView_DragOver);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(604, 21);
+            this.label1.Location = new System.Drawing.Point(604, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 3;
@@ -53,7 +60,7 @@
             // 
             // tbNew
             // 
-            this.tbNew.Location = new System.Drawing.Point(603, 44);
+            this.tbNew.Location = new System.Drawing.Point(603, 94);
             this.tbNew.Name = "tbNew";
             this.tbNew.Size = new System.Drawing.Size(185, 26);
             this.tbNew.TabIndex = 4;
@@ -78,11 +85,33 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lbParentDep
+            // 
+            this.lbParentDep.AutoSize = true;
+            this.lbParentDep.Location = new System.Drawing.Point(608, 13);
+            this.lbParentDep.Name = "lbParentDep";
+            this.lbParentDep.Size = new System.Drawing.Size(74, 20);
+            this.lbParentDep.TabIndex = 7;
+            this.lbParentDep.Text = "Vorstand";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSave.Location = new System.Drawing.Point(603, 223);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(185, 35);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Speichern";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lbParentDep);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbNew);
@@ -102,6 +131,8 @@
         private System.Windows.Forms.TextBox tbNew;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lbParentDep;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

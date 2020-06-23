@@ -28,5 +28,10 @@ namespace AbteilungenLogic
         {
             return departmentRepository.findAll();
         }
+
+        public void updateDepartments(List<Department> departments)
+        {
+            departmentRepository.update(departments);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,12 @@ namespace AbteilungenData
         public void deleteOne(Department department)
         {
             entities.Department.Remove(department);
+            entities.SaveChanges();
+        }
+
+        public void update(List<Department> departments)
+        {
+            entities.Department.AddOrUpdate(departments.ToArray());
             entities.SaveChanges();
         }
     }
